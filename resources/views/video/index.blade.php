@@ -47,7 +47,6 @@
             <div>{{ $videos->caption }}</div>
             <br>
         @endforeach
-    </div>
     {{ $video->links() }}
 
     <!-- Bootstrap Icons -->

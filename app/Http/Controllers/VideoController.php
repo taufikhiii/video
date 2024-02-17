@@ -36,11 +36,15 @@ class VideoController extends Controller
         ]);        
         
 
-        $video = new Video();
-        $video->created_by = $request->created_by;
-        $video->video = $request->file('video')->store('videos');
-        $video->caption = $request->caption;
-        $video->save();
+        // Mengambil ID pengguna yang sedang login
+    $user= auth()->user();
+
+    $video = new Video();
+    $video->created_by = $user->id;
+    $video->video = $request->file('video')->store('videos');
+    $video->caption = $request->caption;
+    $video->save();
+
 
         return redirect()->route('video.index')->with('success', 'Video Berhasil disimpan');
     }
