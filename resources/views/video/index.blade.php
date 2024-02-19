@@ -47,7 +47,11 @@
             <div>{{ $videos->caption }}</div>
             <br>
         @endforeach
-    {{ $video->links() }}
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                {{ $video->links('pagination::bootstrap-4') }}
+            </ul>
+        </nav>
 
     <!-- Bootstrap Icons -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
